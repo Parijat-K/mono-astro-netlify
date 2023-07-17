@@ -1,0 +1,7 @@
+---
+import Content from "./Content.astro";
+const { columns } = Astro.props;
+---
+<div class={`grid grid-rows-${columns.length} gap-2`}>
+    {columns.map((column: any) => <Content data={column} />)}
+</div>

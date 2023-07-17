@@ -1,0 +1,9 @@
+---
+import { marked } from 'marked';
+const { content } = Astro.props;marked.use({
+  mangle: false,
+  headerIds: false,
+});
+const markdown = marked.parse(content);
+---
+<div set:html={markdown} />

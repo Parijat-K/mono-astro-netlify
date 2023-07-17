@@ -1,0 +1,30 @@
+---
+import Primary from '@layouts/Primary.astro';
+
+const topics = await Astro.glob('./**/content.json');
+
+const buildUrl = (base: string, ...parts: string[]): URL => {
+  let url = parts.join("/");
+  return new URL(base + "/" + url);
+};
+---
+
+<Primary title="Manomita's Research">
+  <main class="flex-grow">
+    <div class="flex min-h-full mx-0 lg:mx-2">
+      {topics.map((topic, index) => (
+        <div class="min-h-full mx-1 lg:mx-1 flex-grow relative">
+          <img class="absolute left-0 top-0 w-full h-full" src={`/src/pages/research/${topic.url}/${topic.coverImage}`} alt="" />
+          <div class="absolute left-0 top-0 z-10 w-full h-full p-3 flex flex-col items-center justify-center space-y-2 bg-black/30">
+            <h1 class="text-2xl text-white font-normal">
+              {topic.title}
+            </h1>
+            <a href={buildUrl(Astro.url.href, topic.url)} class="transition cursor-pointer p-3 w-fit bg-gray-800 bg-opacity-50 hover:bg-opacity-80 border-2 border-white hover:border-gray-800 text-white">
+              View
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+</Primary>

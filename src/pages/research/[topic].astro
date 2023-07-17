@@ -1,0 +1,35 @@
+---
+import Content from "@components/Content.astro";
+import Primary from "@layouts/Primary.astro";
+
+export async function getStaticPaths() {
+  const topics = await Astro.glob('./**/content.json');
+  const topicsMap = topics.reduce((tMap, topic) => (tMap[topic.url]=topic, tMap), {});
+  
+  return topics.map((t) => {
+    return {
+      params: { topic: t.url },
+      props: { content: t }
+    }
+  });
+}
+
+const { topic } = Astro.params;
+const { content } = Astro.props;
+---
+<Primary title={content.title}>
+  <main class="flex-grow">
+    <div class="flex flex-col mx-4 lg:mx-8 pt-2">
+      <div class="flex items-center">
+        <a class="cursor-pointer bg-slate-800 hover:bg-slate-700 text-slate-50 px-5 py-2" href={Astro.url.href.slice(0, Astro.url.href.lastIndexOf('/'))}> 
+          Back to Research
+        </a>
+        <h1 class="flex-grow text-center text-4xl">{content.title}</h1>
+        <img class="w-32" src={content.headerImage} />
+      </div>
+      <article>
+        <Content data={content.body} />
+      </article>
+    </div>
+  </main>
+</Primary>

@@ -1,82 +1,50 @@
 ---
-import FeedbackForm from '../components/FeedbackForm.astro';
-import Primary from '../layouts/Primary.astro';
+import Primary from '@layouts/Primary.astro';
+
+import cover from '@images/cover.jpg?url';
 ---
 
-<Primary title="Astro Toolbox">
+<Primary title="Manomita's Bio">
   <main>
-    <div class="header">
-      <div class="logo">
-        <img
-          src="https://res.cloudinary.com/dzkoxrsdj/image/upload/v1652291187/astro_1_c1yk5a.png"
-        />
+    <div class="flex mx-1 lg:mx-3">
+      <div class="w-1/2 bg-slate-200 flex justify-center">
+        <img src={cover} alt="" />
+      </div>
+      <div class="w-1/2 bg-slate-600 p-4 text-slate-300 space-y-6">
+        <h1 class="text-4xl">Hi!</h1>
+        <p class="text-sm">
+          My research focuses on understanding how disaster risks can be reduced using approaches rooted in social sciences. 
+          Particularly, I am interested in understanding how communication influences the way people think about and respond 
+          to disasters and what needs to change. Most of my work is interdisciplinary, mainly drawing from sociology, 
+          psychology and public policy. Check out my projects page for more information.
+        </p>
+        <h2 class="text-2xl">
+          Education:
+        </h2>
+        <ol class="space-y-1 text-md">
+          <li>
+            <b>Ph.D. </b>(2021), Massey University, Wellington, New Zealand
+          </li>
+          <li>
+            <b>M.Sc. </b>(2017), Tata Institute of Social Science, Mumbai, India
+          </li>
+          <li>
+            <b>B.Tech. </b>(2012), West Bengal University of Technology, West Bengal, India
+          </li>
+        </ol>
+        <h2 class="text-2xl">
+          A Special Thank you:
+        </h2>
+        <p class="text-sm">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+          aliqua. Iaculis at erat pellentesque adipiscing commodo elit at. In nulla posuere sollicitudin aliquam ultrices. 
+          Consectetur adipiscing elit ut aliquam purus sit. Amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus.
+        </p>
+        <p class="text-sm">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+          aliqua.
+        </p>
       </div>
     </div>
-    <div class="intro">
-      <p>
-        Hi 👋! This template gives you an
-        <a href="https://astro.build/">Astro</a> app with the scaffolding for
-        <a href="https://ntl.fyi/3upc4Qo"
-          >Netlify Functions</a
-        >, <a href="https://ntl.fyi/3bICRk6">Forms</a>, and
-      <a href="https://ntl.fyi/3PcY8RH">Redirects</a>. Our
-      aim was to give you the code you would need to hit the ground running
-      with a few fun features.
-    </p>
-
-    <p>
-      You can find the code for this project on GitHub at
-      <a href="https://github.com/netlify-templates/astro-toolbox"
-        >https://github.com/netlify-templates/astro-toolbox</a
-      >! Happy coding!
-    </p>
-    </div>
-    <FeedbackForm />
-    <a class="jokes-link" href="/api/joke">
-    <h3>
-      Click here for function-loaded jokes!
-    </h3>
-    </a>
-    <footer class="footer">
-      Made with <a href="https://ntl.fyi/3P0dwBi"
-        ><img
-          src="https://res.cloudinary.com/dzkoxrsdj/image/upload/v1646714899/netliheart_ezlkim.svg"
-          alt="Netlify Logo"
-        /></a
-      > for you!
-    </footer>
   </main>
 </Primary>
-
-<style>
-  :root {
-    text-align: center;
-  }
-  .logo img {
-    padding: 30px 0;
-    width: 100%;
-  }
-
-  main {
-    padding: 2rem 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 60ch;
-    align-items: center;
-  } 
-
-  footer {
-    width: 100%;
-    height: 100px;
-    border-top: 1px solid #eaeaea;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  footer img {
-    width: 20px;
-  }
-</style>

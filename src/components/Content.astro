@@ -1,0 +1,31 @@
+---
+import Column from './Column.astro';
+import Row from './Row.astro';
+import Paragraph from './Paragraph.astro';
+const { data } = Astro.props;
+---
+<>
+    {
+        data?.type === 'Row' ? (
+            <Row rows={data.items} />
+        ) : data?.type === 'Column' ? (
+            <Column columns={data.items} />
+        ) : data?.type === 'Paragraph' ? (
+            <Paragraph content={data.content} />
+        ) : data?.type === 'Image' ? (
+            <img class="object-contain" src={data.content} />
+        ) : data?.type === 'H1' ? (
+            <h1 class="text-4xl">{data.content}</h1>
+        ) : data?.type === 'H2' ? (
+            <h2 class="text-3xl">{data.content}</h2>
+        ) : data?.type === 'H3' ? (
+            <h3 class="text-2xl">{data.content}</h3>
+        ) : data?.type === 'H4' ? (
+            <h4 class="text-xl">{data.content}</h4>
+        ) : (
+            <div class="grid h-[50vh] place-items-center">
+                <h2 class="text-3xl">Something's Wrong!!!</h2>
+            </div>            
+        )
+    }
+</>

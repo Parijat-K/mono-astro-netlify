@@ -3,100 +3,74 @@
 ---
 
 <!-- ====== Navbar Section Start -->
-<header class="sticky bg-white">
-    <div class="pt-6 px-4 mx-auto max-w-screen-xl sm:px-6 lg:px-20">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex-1 md:flex md:items-center md:gap-12">
-          <a class="block text-teal-600 text-xl" href="/">
-            <span>Manomita Das</span>
-          </a>
+<header class="bg-white">
+  <nav>
+    <div class="mx-2 sm:mx-0 lg:mx-16 pt-0 sm:pt-4 lg:pt-6 pb-0 sm:pb-1 lg:pb-3">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!--
+              Icon when menu is closed.
+  
+              Heroicon name: outline/bars-3
+  
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <!--
+              Icon when menu is open.
+  
+              Heroicon name: outline/x-mark
+  
+              Menu open: "block", Menu closed: "hidden"
+            -->
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="hidden sm:block">
+            <div class="flex space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="/" class="text-gray-700 hover:text-gray-500 px-3 py-2 text-xl lg:text-2xl font-medium">Manomita Das</a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="/" class="text-gray-700 hover:text-gray-400 px-3 py-2 text-lg lg:text-xl font-normal" aria-current="page">About Me</a>
   
-        <div class="md:flex md:items-center">
-          <nav class="hidden md:block" aria-labelledby="header-navigation">
-            <h2 class="sr-only" id="header-navigation">Header navigation</h2>
+              <a href="/research" class="text-gray-700 hover:text-gray-400 px-3 py-2 text-lg lg:text-xl font-normal">Research</a>
   
-            <ul class="flex items-center text-base gap-12">
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  About
-                </a>
-              </li>
+              <a href="/publications" class="text-gray-700 hover:text-gray-400 px-3 py-2 text-lg lg:text-xl font-normal">Publications</a>
   
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  Careers
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  History
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  Services
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  Projects
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </nav>
-  
-          <div class="flex items-center gap-4">
-            <div class="block md:hidden">
-              <button
-                class="p-2 text-gray-600 bg-gray-100 rounded transition hover:text-gray-600/75"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
+              <a href="/contact" class="text-gray-700 hover:text-gray-400 px-3 py-2 text-lg lg:text-xl font-normal">Contact</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </header>
+  
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pt-2 pb-3">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="/" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">About Me</a>
+  
+        <a href="/research" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Research</a>
+  
+        <a href="/publications" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Publications</a>
+  
+        <a href="/contact" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+      </div>
+    </div>
+  </nav>
+</header>
 <!-- ====== Navbar Section End -->
