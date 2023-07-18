@@ -2,11 +2,6 @@
 import Primary from '@layouts/Primary.astro';
 
 const topics = await Astro.glob('./**/content.json');
-
-const buildUrl = (base: string, ...parts: string[]): URL => {
-  let url = parts.join("/");
-  return new URL(base + "/" + url);
-};
 ---
 
 <Primary title="Manomita's Research">
@@ -19,7 +14,7 @@ const buildUrl = (base: string, ...parts: string[]): URL => {
             <h1 class="text-2xl text-white font-normal">
               {topic.title}
             </h1>
-            <a href={buildUrl(Astro.url.href, topic.url)} class="transition cursor-pointer p-3 w-fit bg-gray-800 bg-opacity-50 hover:bg-opacity-80 border-2 border-white hover:border-gray-800 text-white">
+            <a href={`${Astro.url.pathname}/${topic.url}`} class="transition cursor-pointer p-3 w-fit bg-gray-800 bg-opacity-50 hover:bg-opacity-80 border-2 border-white hover:border-gray-800 text-white">
               View
             </a>
           </div>
