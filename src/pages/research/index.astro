@@ -1,20 +1,23 @@
 ---
 import Primary from '@layouts/Primary.astro';
+import { Image } from 'astro:assets';
 
-const topics = await Astro.glob('./**/content.json');
+import { getCollection } from 'astro:content';
+
+const topics = await getCollection('research');
 ---
 
 <Primary title="Manomita's Research">
   <main class="flex-grow">
-    <div class="flex min-h-full mx-0 lg:mx-2">
-      {topics.map((topic, index) => (
-        <div class="min-h-full mx-1 lg:mx-1 flex-grow relative">
-          <img class="absolute left-0 top-0 w-full h-full" src={`/src/pages/research/${topic.url}/${topic.coverImage}`} alt="" />
+    <div class="flex min-h-full mx-0 lg:mx-16 gap-5">
+      {topics.map((topic) => (
+        <div class="min-h-full flex-grow relative">
+          <Image class="absolute left-0 top-0 w-full h-full" src={topic.data.coverImage} alt="" />
           <div class="absolute left-0 top-0 z-10 w-full h-full p-3 flex flex-col items-center justify-center space-y-2 bg-black/30">
             <h1 class="text-2xl text-white font-normal">
-              {topic.title}
+              {topic.data.title}
             </h1>
-            <a href={`${Astro.url.pathname}/${topic.url}`} class="transition cursor-pointer p-3 w-fit bg-gray-800 bg-opacity-50 hover:bg-opacity-80 border-2 border-white hover:border-gray-800 text-white">
+            <a href={`${Astro.url.pathname}/${topic.id}`} class="transition cursor-pointer p-3 w-fit bg-gray-800 bg-opacity-50 hover:bg-opacity-80 border-2 border-white hover:border-gray-800 text-white">
               View
             </a>
           </div>

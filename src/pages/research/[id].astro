@@ -1,0 +1,37 @@
+---
+import Content from "@components/Content.astro";
+import Image from "@components/Image.astro";
+import Primary from "@layouts/Primary.astro";
+
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const topics = await getCollection('research');
+  var returnList =  topics.map((t) => {
+    return {
+      params: { id: t.id },
+      props: { content: t.data },
+    }
+  });
+  return returnList;
+
+}
+
+const { content } = Astro.props;
+---
+<Primary title={ content.title }>
+  <main class="flex-grow">
+    <div class="flex flex-col mx-4 lg:mx-16 pt-2">
+      <div class="flex items-center">
+        <a class="cursor-pointer bg-slate-800 hover:bg-slate-700 text-slate-50 px-5 py-2" href={Astro.url.pathname.slice(0, Astro.url.pathname.lastIndexOf('/'))}> 
+          Back to Research
+        </a>
+        <h1 class="flex-grow text-center text-4xl">{content.title}</h1>
+        <Image classes="w-32" data={content.headerImage} alt="" />
+      </div>
+      <article class="mx-16 my-8 text-justify">
+        <Content data={content.body} />
+      </article>
+    </div>
+  </main>
+</Primary>

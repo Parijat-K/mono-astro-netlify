@@ -1,9 +1,30 @@
 ---
 import Primary from '@layouts/Primary.astro';
+
+import { getCollection } from 'astro:content';
+
+const publication = await getCollection('publication');
 ---
 
 <Primary title="Publications">
-  <main>
-    <p>Publications</p>
+  <main class="flex flex-grow">
+    <div class="bg-slate-600 p-4 text-slate-300 space-y-6 px-16 py-8">
+      <h1 class="text-4xl text-center">Publications</h1>
+      {publication.length > 0 && (
+        <div class={`grid grid-rows-${publication[0].data.list.length} gap-4`}>
+          {publication[0].data.list.map((p) => (
+            <p>
+              <>{p.authors.map((a, idx) => {
+                if (a === "Das, M."){
+                  return (<><span class="font-bold underline">{a}</span> {idx < p.authors.length - 1 && (<span>, </span>)}</>)
+                } else {
+                  return (<><span>{a}</span> {idx < p.authors.length - 1 && (<span>, </span>)}</>)
+                }
+              })}
+              </>&nbsp;{p.title}. {p.publication}</p>
+          ))}
+        </div>
+      )}      
+    </div>
   </main>
 </Primary>

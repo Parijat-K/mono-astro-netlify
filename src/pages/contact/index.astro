@@ -1,9 +1,29 @@
 ---
 import Primary from '@layouts/Primary.astro';
+import Image from '@components/Image.astro';
+
+import cover from '@images/contact.svg';
+import GoogleScholarLogo from '@images/google-scholar.svg';
+
+const GoogleLogo = {...GoogleScholarLogo, height: 40, width: 40}
 ---
 
 <Primary title="Get In Touch">
-  <main>
-    <p>Contact</p>
+  <main class="flex flex-1">
+    <div class="flex flex-grow mx-1 lg:mx-16">
+      <div class="w-1/2 space-y-6 flex flex-col items-center justify-center p-16 gap-1">
+        <h1 class="text-4xl">Get In Touch</h1>
+        <p class="text-sm">
+          I would love to hear from you if you would like to collaborate or have questions!
+        </p>
+        <a class="bg-slate-600 text-slate-100 px-16 py-2" href="mailto:das.manomita@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=WEgHb_sAAAAJ" target="_blank">
+          <Image classes="object-cover" data={GoogleLogo} alt="Google Scholar Link" />
+        </a>
+      </div>
+      <div class="w-1/2 bg-slate-200 flex justify-center">
+        <Image classes="object-contain" data={cover} alt="Cover Image" />
+      </div>
+    </div>
   </main>
 </Primary>

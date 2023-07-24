@@ -1,0 +1,11 @@
+---
+import { Image as ImageAsset } from 'astro:assets';
+const { classes, data, alt } = Astro.props;
+---
+{
+    data.src.endsWith(".svg") ? (
+        <img class={classes} src={data.src} alt={alt} />
+    ) : (
+        <ImageAsset class={classes} src={data} alt={alt} />
+    )
+}
