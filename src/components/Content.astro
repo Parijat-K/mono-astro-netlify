@@ -2,6 +2,8 @@
 import Column from './Column.astro';
 import Row from './Row.astro';
 import Paragraph from './Paragraph.astro';
+import Image from './Image.astro';
+
 const { data } = Astro.props;
 ---
 <>
@@ -12,8 +14,8 @@ const { data } = Astro.props;
             <Column columns={data.items} />
         ) : data?.type === 'Paragraph' ? (
             <Paragraph content={data.content} />
-        ) : data?.type === 'Image' ? (
-            <img class="object-contain" src={data.content} />
+        ) : data?.type === 'Image' && data.image !== undefined ? (
+            <Image classes="object-contain" data={data.image} alt="" />
         ) : data?.type === 'H1' ? (
             <h1 class="text-4xl">{data.content}</h1>
         ) : data?.type === 'H2' ? (
