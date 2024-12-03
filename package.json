@@ -14,13 +14,13 @@
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/eslint-parser": "^7.22.9",
-    "astro": "^2.8.3",
+    "astro": "^5.0.0",
     "eslint": "^8.45.0",
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.14.0"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^4.0.0",
+    "@astrojs/tailwind": "^5.0.0",
     "@types/marked": "^5.0.1",
     "marked": "^5.1.1",
     "netlify-cli": "^16.9.3",
