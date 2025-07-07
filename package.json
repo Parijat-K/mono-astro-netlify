@@ -24,7 +24,7 @@
     "@types/marked": "^6.0.0",
     "marked": "^5.1.1",
     "netlify-cli": "^22.2.2",
-    "sharp": "^0.33.0",
+    "sharp": "^0.34.0",
     "tailwindcss": "^3.1.8"
   }
 }
